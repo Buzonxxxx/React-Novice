@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import {Form, FormControl, Button} from 'react-bootstrap'
-import './App.css'
 
-class App extends Component {
+const Style = {
+  'padding': '5%',
+  'text-align': 'center',
+  'font-size': '16px',
+};
+
+class AgeTeller extends Component {
   render() {
     return (
-      <div className="App">
+      <div style={Style}>
         <Form inline>
           <h2>Input Your Birthday!</h2>
           <FormControl type="date"></FormControl>
@@ -17,4 +22,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default AgeTeller
