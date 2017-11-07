@@ -13,16 +13,10 @@ class App extends Component {
     showPersons: false
   }
 
-  switchNameHandler = (newName) => {
-    // console.log('Was clicked!');
-    // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
-    this.setState({
-      persons: [
-        { name: newName, age: 28 },
-        { name: 'Manu', age: 29 },
-        { name: 'Stephanie', age: 27 }
-      ]
-    })
+  deletePersonHandler = (PersonIndex) => {
+    const persons = this.state.persons
+    persons.splice(PersonIndex, 1)
+    this.setState({persons: persons})
   }
 
   nameChangedHandler = (event) => {
@@ -55,19 +49,29 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          <Person
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age} />
-          <Person
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}
-            click={this.switchNameHandler.bind(this, 'Max!')}
-            changed={this.nameChangedHandler} >My Hobbies: Racing</Person>
-          <Person
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age} />
+          {this.state.persons.map((person, index) => {
+            return <Person
+              click={this.deletePersonHandler.bind(this, index)}
+              name={person.name}
+              age={person.age} />
+          })}
         </div>
       )
+      // persons = (
+      //   <div>
+      //     <Person
+      //       name={this.state.persons[0].name}
+      //       age={this.state.persons[0].age} />
+      //     <Person
+      //       name={this.state.persons[1].name}
+      //       age={this.state.persons[1].age}
+      //       click={this.switchNameHandler.bind(this, 'Max!')}
+      //       changed={this.nameChangedHandler} >My Hobbies: Racing</Person>
+      //     <Person
+      //       name={this.state.persons[2].name}
+      //       age={this.state.persons[2].age} />
+      //   </div>
+      // )
     }
     return (
       <div className="App">

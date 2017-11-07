@@ -21,48 +21,87 @@ const clockStyle = {
   'top': '0',
 };
 
+
 const ToDoItem = props => <div style={boxStyle}>{props.title}</div>
-const NewItem = props => <div style={boxStyle}>{props.title}<Button title="+" /></div>
-const TaskItem = props => <div style={boxStyle}>{props.title}<Button title="x" /></div>
-const Button = props => <div style={btnStyle}>{props.title}</div>
+const NewItem = props =>
+  <div style={boxStyle}>
+    {props.title}
+    <AddButton click={props.click} title="+" />
+
+  </div>
+
+const TaskItem = props => <div style={boxStyle}>{props.title}<DeleteButton title="x" /></div>
+
+const DeleteButton = props => <div style={btnStyle}>{props.title}</div>
+const AddButton = props =>
+  <div style={btnStyle}
+    onClick={props.click}
+  >
+    {props.title}
+  </div>
+
+let newList = []
 
 class ToDoList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      tastItem: [1, 2, 3, 4, 5],
+      list: [],
+      count: 0
+    }
+  }
+
+  HandleAdd = () => {
+    const count = this.state.count
+    newList.push(count + 1)
+    this.setState(
+      {
+        list: newList,
+        count: count + 1
+      })
+  }
+
   render() {
+    const counterStyle = {
+      'text-align': 'center'
+    }
     return (
       <div>
         <ToDoItem title="To Do" />
         <Clock />
-        <NewItem title="New" />
-        <TaskItem title="Task 1" />
-        <TaskItem title="Task 2" />
-        <TaskItem title="Task 3" />
-        <TaskItem title="Task 4" />
-        <TaskItem title="Task 5" />
+        <NewItem
+          title="New"
+          click={this.HandleAdd}
+        />
+        <h1 style={counterStyle}>{`${this.state.list}`}</h1>
+        {this.state.tastItem.map(task => {
+          return <TaskItem title={`Task${task}`} />
+        })}
       </div>
     )
   }
 }
 
 class Clock extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state = {date: new Date()}
+    this.state = { date: new Date() }
   }
-  componentDidMount(){
-    this.timerID = setInterval(() => this.tick(),1000)
+  componentDidMount() {
+    this.timerID = setInterval(() => this.tick(), 1000)
   }
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.timerID);
   }
   tick() {
-    this.setState({date: new Date()})
+    this.setState({ date: new Date() })
   }
 
   render() {
     return (
       <div style={clockStyle}>
-        <h1>Hello, world!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+        <h2>{this.state.date.toLocaleTimeString()}.</h2>
       </div>
     )
   }

@@ -10,6 +10,7 @@ import ShowWarning from './components/ShowWarning'
 import AgeTeller from './components/AgeTeller'
 import Assignment1 from './components/Assignment1/Assignment1'
 import ReactSample from './components/ReactSample/ReactSample'
+import LoginControl from './components/LoginControl'
   
   ReactDOM.render(
     // <Greeting />,
@@ -22,6 +23,7 @@ import ReactSample from './components/ReactSample/ReactSample'
     // <AgeTeller />,
     // <Assignment1 />,
     // <ReactSample/>,
+    // <LoginControl />,
     document.getElementById('root')
   );
 

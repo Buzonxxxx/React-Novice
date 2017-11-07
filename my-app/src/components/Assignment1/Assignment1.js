@@ -40,7 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ol>
+        {/* <ol>
           <li>Create TWO new components: UserInput and UserOutput</li>
           <li>UserInput should hold an input element, UserOutput two paragraphs</li>
           <li>Output multiple UserOutput components in the App component (any paragraph texts of your choice)</li>
@@ -51,7 +51,7 @@ class App extends Component {
           <li>Ensure that the new input entered by the user overwrites the old username passed to UserOutput</li>
           <li>Add two-way-binding to your input (in UserInput) to also display the starting username</li>
           <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
-        </ol>
+        </ol> */}
         <UserInput change = {this.HandleEvent} 
         currentName={this.state.username}/>
         <UserOutput username={this.state.username} />
