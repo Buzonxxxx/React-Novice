@@ -21,22 +21,50 @@ const clockStyle = {
   'top': '0',
 };
 
-
 const ToDoItem = props => <div style={boxStyle}>{props.title}</div>
 const NewItem = props =>
   <div style={boxStyle}>
     {props.title}
     <AddButton click={props.click} title="+" />
-
   </div>
 
-const TaskItem = props => <div style={boxStyle}>{props.title}<DeleteButton title="x" /></div>
+const UserInput = props => {
+  const inputStyle = {
+    'width': '500px',
+    'display': 'inline-block',
+    'height': '50px',
+    // 'width': '40%',
+    'border': 'solid blue 1px',
+    // 'border': '1px solid rgba(255,255,255,0.6)',
+    'background': 'linear-gradient(#eee, #fff)',
+    // 'transition': 'all 0.3s ease-out',
+    // 'box-shadow': 'inset 0 1px 4px rgba(0,0,0,0.4)',
+    // 'padding': '5px',
+    // '-moz-box-sizing': 'border-box',
+    // 'box-sizing': 'border-box',
+  	'text-align': 'center',
+    'font-size':'20px'
+  }
+  const spanStyle = {
+    'display': 'inline-block',
+    'width':'30%',
+  }
+  return(
+<div> 
+  <span style={spanStyle}></span>
+  <input 
+  style={inputStyle} 
+  type ="text"
+   >
+  </input>
+  </div>
+  )
+}
 
+const TaskItem = props => <div style={boxStyle}>{props.title}<DeleteButton title="x" /></div>
 const DeleteButton = props => <div style={btnStyle}>{props.title}</div>
 const AddButton = props =>
-  <div style={btnStyle}
-    onClick={props.click}
-  >
+  <div style={btnStyle} onClick={props.click}>
     {props.title}
   </div>
 
@@ -46,7 +74,7 @@ class ToDoList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      tastItem: [1, 2, 3, 4, 5],
+      tastItem: [1, 2, 3, 4, 5, 6, 7, 8],
       list: [],
       count: 0
     }
@@ -70,11 +98,9 @@ class ToDoList extends React.Component {
       <div>
         <ToDoItem title="To Do" />
         <Clock />
-        <NewItem
-          title="New"
-          click={this.HandleAdd}
-        />
+        <NewItem title="New" click={this.HandleAdd}/>
         <h1 style={counterStyle}>{`${this.state.list}`}</h1>
+        <UserInput/>
         {this.state.tastItem.map(task => {
           return <TaskItem title={`Task${task}`} />
         })}

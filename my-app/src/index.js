@@ -16,13 +16,13 @@ import LoginControl from './components/LoginControl'
     // <Greeting />,
     // <Welcome />,
     // <Comment />,
-    <ToDoList />,
+    // <ToDoList />,
     // <Clock />,
     // <Toggle />,
     // <ShowWarning/>,
     // <AgeTeller />,
     // <Assignment1 />,
-    // <ReactSample/>,
+    <ReactSample/>,
     // <LoginControl />,
     document.getElementById('root')
   );
