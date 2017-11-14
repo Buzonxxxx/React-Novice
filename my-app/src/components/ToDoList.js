@@ -3,14 +3,14 @@ import React from 'react'
 const boxStyle = {
   'width': '500px',
   'height': '50px',
-  'line-height': '50px',
+  'lineHeight': '50px',
   'margin': '10px auto',
   'border': 'solid blue 1px',
-  'text-align': 'center',
+  'textAlign': 'center',
 };
 const btnStyle = {
   'width': '50px',
-  'border-left': 'solid blue 1px',
+  'borderLeft': 'solid blue 1px',
   'display': 'inline',
   'float': 'right',
   'cursor': 'pointer',
@@ -31,78 +31,74 @@ const NewItem = props =>
 const UserInput = props => {
   const inputStyle = {
     'width': '500px',
-    'display': 'inline-block',
-    'height': '50px',
-    // 'width': '40%',
+    'lineHeight': '50px',
     'border': 'solid blue 1px',
-    // 'border': '1px solid rgba(255,255,255,0.6)',
+    'margin': '10px auto',
     'background': 'linear-gradient(#eee, #fff)',
-    // 'transition': 'all 0.3s ease-out',
-    // 'box-shadow': 'inset 0 1px 4px rgba(0,0,0,0.4)',
-    // 'padding': '5px',
-    // '-moz-box-sizing': 'border-box',
-    // 'box-sizing': 'border-box',
-  	'text-align': 'center',
-    'font-size':'20px'
+    'textAlign': 'center',
+    'fontSize': '20px'
   }
-  const spanStyle = {
-    'display': 'inline-block',
-    'width':'30%',
-  }
-  return(
-<div> 
-  <span style={spanStyle}></span>
-  <input 
-  style={inputStyle} 
-  type ="text"
-   >
-  </input>
-  </div>
+
+  return (
+    <form style={{ textAlign: 'center' }} onSubmit={props.submit}>
+      <input style={inputStyle} type="text" onChange={props.change} />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
   )
 }
 
 const TaskItem = props => <div style={boxStyle}>{props.title}<DeleteButton title="x" /></div>
 const DeleteButton = props => <div style={btnStyle}>{props.title}</div>
-const AddButton = props =>
-  <div style={btnStyle} onClick={props.click}>
-    {props.title}
-  </div>
+const AddButton = props => <div style={btnStyle} onClick={props.click}>{props.title}</div>
 
-let newList = []
+let addList = []
+let submitList = []
 
 class ToDoList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      tastItem: [1, 2, 3, 4, 5, 6, 7, 8],
-      list: [],
-      count: 0
+      taskItem: [],
+      count: 0,
+      value: ''
     }
   }
 
-  HandleAdd = () => {
-    const count = this.state.count
-    newList.push(count + 1)
+  handleSubmit = (event) => {
+    let value = this.state.value
+    event.preventDefault()
+    submitList.push(value)
     this.setState(
       {
-        list: newList,
+        taskItem: submitList,
+      }
+    )
+  }
+
+  handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  }
+
+  handleAdd = () => {
+    const count = this.state.count
+    addList.push(count + 1)
+    this.setState(
+      {
+        taskItem: addList,
         count: count + 1
       })
   }
 
   render() {
-    const counterStyle = {
-      'text-align': 'center'
-    }
     return (
       <div>
         <ToDoItem title="To Do" />
         <Clock />
-        <NewItem title="New" click={this.HandleAdd}/>
-        <h1 style={counterStyle}>{`${this.state.list}`}</h1>
-        <UserInput/>
-        {this.state.tastItem.map(task => {
-          return <TaskItem title={`Task${task}`} />
+        <NewItem title="New" click={this.handleAdd} />
+        <UserInput submit={this.handleSubmit} change={this.handleChange} />
+        {this.state.taskItem.map(task => {
+          return <TaskItem title={task} />
         })}
       </div>
     )

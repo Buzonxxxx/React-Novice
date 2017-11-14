@@ -26,11 +26,6 @@ const UserOutput = (props) => {
 
 class App extends Component {
   state = { username: 'Louis Liao'}
-  constructor(){
-    super()
-    // this.HandleEvent = this.HandleEvent.bind(this)
-  }
-
   
   HandleEvent = (event) => {
     this.setState(
