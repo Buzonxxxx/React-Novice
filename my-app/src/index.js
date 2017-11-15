@@ -11,19 +11,21 @@ import AgeTeller from './components/AgeTeller'
 import Assignment1 from './components/Assignment1/Assignment1'
 import ReactSample from './components/ReactSample/ReactSample'
 import LoginControl from './components/LoginControl'
+import SelectAll from './components/SelectAll'
   
   ReactDOM.render(
     // <Greeting />,
     // <Welcome />,
     // <Comment />,
-    <ToDoList />,
+    // <ToDoList />,
     // <Clock />,
     // <Toggle />,
     // <ShowWarning/>,
     // <AgeTeller />,
     // <Assignment1 />,
-    // <ReactSample/>,
+    <ReactSample/>,
     // <LoginControl />,
+    // <SelectAll />,
     document.getElementById('root')
   );
 

@@ -90,6 +90,10 @@ class ToDoList extends React.Component {
       })
   }
 
+  handleDelete = () => {
+
+  }
+
   render() {
     return (
       <div>
@@ -98,7 +102,7 @@ class ToDoList extends React.Component {
         <NewItem title="New" click={this.handleAdd} />
         <UserInput submit={this.handleSubmit} change={this.handleChange} />
         {this.state.taskItem.map(task => {
-          return <TaskItem title={task} />
+          return <TaskItem title={task} key={task.toString()} />
         })}
       </div>
     )

@@ -15,7 +15,7 @@ const WarningBanner = props => {
 class Page extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {showWarning: true}
+    this.state = { showWarning: true }
     // this.handleToggleClick = this.handleToggleClick.bind(this);
   }
 
@@ -24,7 +24,7 @@ class Page extends React.Component {
       showWarning: !prevState.showWarning
     }));
   }
-  
+
   render() {
     return (
       <div>
