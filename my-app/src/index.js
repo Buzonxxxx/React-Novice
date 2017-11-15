@@ -23,9 +23,9 @@ import SelectAll from './components/SelectAll'
     // <ShowWarning/>,
     // <AgeTeller />,
     // <Assignment1 />,
-    <ReactSample/>,
+    // <ReactSample/>,
     // <LoginControl />,
-    // <SelectAll />,
+    <SelectAll />,
     document.getElementById('root')
   );
 
