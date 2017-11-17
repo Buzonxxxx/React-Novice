@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Greeting from './components/Greeting'
 import Clock from './components/Clock'
 import Welcome from './components/Welcome'
 import Comment from './components/Comment'
@@ -14,7 +13,6 @@ import LoginControl from './components/LoginControl'
 import SelectAll from './components/SelectAll'
   
   ReactDOM.render(
-    // <Greeting />,
     // <Welcome />,
     // <Comment />,
     // <ToDoList />,
@@ -23,9 +21,9 @@ import SelectAll from './components/SelectAll'
     // <ShowWarning/>,
     // <AgeTeller />,
     // <Assignment1 />,
-    // <ReactSample/>,
+    <ReactSample/>,
     // <LoginControl />,
-    <SelectAll />,
+    // <SelectAll />,
     document.getElementById('root')
   );
 

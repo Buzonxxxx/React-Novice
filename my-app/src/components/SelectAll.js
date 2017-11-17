@@ -10,14 +10,12 @@ class SelectAll extends React.Component {
 
   selectAll = event => {
     this.setState({
-      checked: this.state.checked.map(function () {
-        return event.target.checked //select all box被按之後的狀態
-      })
+      checked: this.state.checked.map(() => event.target.checked) //select all box被按之後的狀態
     })
   }
 
   handleChange = (index, event) => {
-    var checked = this.state.checked;
+    const checked = this.state.checked;
     checked[index] = event.target.checked;
 
     this.setState({
@@ -25,9 +23,9 @@ class SelectAll extends React.Component {
     })
   }
   render() {
-    var isAllChecked = 
-    this.state.checked.filter(c => c).length === this.state.checked.length
-    // 目前checked數量 === state checked數量
+    const isAllChecked =
+      this.state.checked.filter(c => c).length === this.state.checked.length
+    // 目前checked數量 === state checked數量: 3
     return (
       <div>
         <p>What can I do?</p>
