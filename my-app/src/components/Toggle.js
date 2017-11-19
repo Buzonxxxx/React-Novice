@@ -32,16 +32,14 @@ class Toggle extends React.Component {
   // }
 
   render() {
-    return (
-      <div>
+    return [
         <button onClick={this.handleClick1}>
           {this.state.isToggleOn1 ? 'ON' : 'OFF'}
-        </button>
+        </button>,
         <button onClick={this.handleClick2}>
           {this.state.isToggleOn2 ? 'ON' : 'OFF'}
         </button>
-      </div>
-    );
+    ]
   }
 }
 

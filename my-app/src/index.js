@@ -11,19 +11,23 @@ import Assignment1 from './components/Assignment1/Assignment1'
 import ReactSample from './components/ReactSample/ReactSample'
 import LoginControl from './components/LoginControl'
 import SelectAll from './components/SelectAll'
+import BoilVerdict from './components/BoilVerdict'
+import SignUpDialog from './components/SignUpDialog'
   
   ReactDOM.render(
     // <Welcome />,
     // <Comment />,
     // <ToDoList />,
     // <Clock />,
-    // <Toggle />,
+    <Toggle />,
     // <ShowWarning/>,
     // <AgeTeller />,
     // <Assignment1 />,
-    <ReactSample/>,
+    // <ReactSample/>,
     // <LoginControl />,
     // <SelectAll />,
+    // <BoilVerdict/>,
+    // <SignUpDialog/>,
     document.getElementById('root')
   );
 
