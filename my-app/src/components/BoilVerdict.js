@@ -3,7 +3,7 @@ import React from 'react'
 const scaleNames = {
   c: 'Celsius',
   f: 'Fahrenheit'
-};
+}
 
 const toCelsius = fahrenheit => (fahrenheit - 32) * 5 / 9
 const toFahrenheit = celsius => (celsius * 9 / 5) + 32
@@ -36,8 +36,8 @@ class TemperatureInput extends React.Component {
   }
 
   render() {
-    const temperature = this.props.temperature;
-    const scale = this.props.scale;
+    const temperature = this.props.temperature; // celsius or fahrenheit
+    const scale = this.props.scale; //c or f
     return (
       <fieldset>
         <legend>Enter temperature in {scaleNames[scale]}:</legend>

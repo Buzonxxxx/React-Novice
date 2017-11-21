@@ -13,13 +13,14 @@ import LoginControl from './components/LoginControl'
 import SelectAll from './components/SelectAll'
 import BoilVerdict from './components/BoilVerdict'
 import SignUpDialog from './components/SignUpDialog'
+import WorldClock from './components/WorldClock'
   
   ReactDOM.render(
     // <Welcome />,
     // <Comment />,
     // <ToDoList />,
     // <Clock />,
-    <Toggle />,
+    // <Toggle />,
     // <ShowWarning/>,
     // <AgeTeller />,
     // <Assignment1 />,
@@ -28,6 +29,7 @@ import SignUpDialog from './components/SignUpDialog'
     // <SelectAll />,
     // <BoilVerdict/>,
     // <SignUpDialog/>,
+    <WorldClock />,
     document.getElementById('root')
   );
 

@@ -19,9 +19,10 @@ import React from 'react'
     return (
       <div>
         <h1>Hello, world!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+        <h2>This is Taiwan time zone: {this.state.date.toLocaleTimeString()}.</h2>
+        <h2>This is Japan time zone: {this.state.date.toLocaleTimeString('zh-TW', { timeZone: 'Asia/Tokyo' })}.</h2>
       </div>
-    )
+    ) 
   }
 }
 
