@@ -14,6 +14,7 @@ import SelectAll from './components/SelectAll'
 import BoilVerdict from './components/BoilVerdict'
 import SignUpDialog from './components/SignUpDialog'
 import WorldClock from './components/WorldClock'
+import FilterTable from './components/ThinkInReact'
   
   ReactDOM.render(
     // <Welcome />,
@@ -29,7 +30,8 @@ import WorldClock from './components/WorldClock'
     // <SelectAll />,
     // <BoilVerdict/>,
     // <SignUpDialog/>,
-    <WorldClock />,
+    // <WorldClock />,
+    <FilterTable />,
     document.getElementById('root')
   );
 
