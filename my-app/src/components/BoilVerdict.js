@@ -8,7 +8,7 @@ const scaleNames = {
 const toCelsius = fahrenheit => (fahrenheit - 32) * 5 / 9
 const toFahrenheit = celsius => (celsius * 9 / 5) + 32
 
-function tryConvert(temperature, convert) {
+const tryConvert = (temperature, convert) => {
   const input = parseFloat(temperature);
   if (Number.isNaN(input)) {
     return '';
@@ -18,7 +18,7 @@ function tryConvert(temperature, convert) {
   return rounded.toString();
 }
 
-function BoilingVerdict(props) {
+const BoilingVerdict = (props) => {
   if (props.celsius >= 100) {
     return <p>The water would boil.</p>;
   }
@@ -26,12 +26,8 @@ function BoilingVerdict(props) {
 }
 
 class TemperatureInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.props.onTemperatureChange(e.target.value);
   }
 
@@ -51,19 +47,17 @@ class TemperatureInput extends React.Component {
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
-    this.handleCelsiusChange = this.handleCelsiusChange.bind(this);
-    this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this);
     this.state = {
       temperature: '',
       scale: 'c'
     }
   }
 
-  handleCelsiusChange(temperature) {
+  handleCelsiusChange = (temperature) => {
     this.setState({ scale: 'c', temperature });
   }
 
-  handleFahrenheitChange(temperature) {
+  handleFahrenheitChange = (temperature) => {
     this.setState({ scale: 'f', temperature });
   }
 

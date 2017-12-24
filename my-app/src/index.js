@@ -28,10 +28,10 @@ import FilterTable from './components/ThinkInReact'
     // <ReactSample/>,
     // <LoginControl />,
     // <SelectAll />,
-    // <BoilVerdict/>,
+    <BoilVerdict/>,
     // <SignUpDialog/>,
     // <WorldClock />,
-    <FilterTable />,
+    // <FilterTable />,
     document.getElementById('root')
   );
 
