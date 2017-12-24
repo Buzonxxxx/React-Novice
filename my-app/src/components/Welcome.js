@@ -9,11 +9,12 @@ class Welcome extends React.Component {
   }
 
   render() {
-    return [
-      <h1>Hello, {this.state.name[0]}</h1>,
-      <h1>Hello, {this.state.name[1]}</h1>,
-      <h1>Hello, {this.state.name[2]}</h1>,
-    ]
+    return (
+      this.state.name.map(person => {
+        return <h1 key={person} >Hello, {person}</h1>
+      })
+    )
   }
-}   
-  export default Welcome
+}
+
+export default Welcome

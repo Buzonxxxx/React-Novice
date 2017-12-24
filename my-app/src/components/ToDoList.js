@@ -57,22 +57,47 @@ const UserInput = props => {
   }
   return (
     <form style={{ textAlign: 'center' }} onSubmit={props.submit}>
-      <input style={inputStyle} type="text" onChange={props.change} value = {props.value} />
+      <input style={inputStyle} type="text" onChange={props.change} value={props.value} placeholder='add new task here' />
       <br />
       <input type="submit" value="Submit" />
     </form>
   )
 }
+class SearchInput extends React.Component {
+
+  handleFilterTextChange = (e) => {
+    this.props.onFilterTextChange(e.target.value);
+  }
+  render() {
+    const inputStyle = {
+      'width': '500px',
+      'lineHeight': '50px',
+      'border': 'solid blue 1px',
+      'margin': '10px auto',
+      'background': 'linear-gradient(#eee, #fff)',
+      'textAlign': 'center',
+      'fontSize': '20px'
+    }
+    return (
+      <form style={{ textAlign: 'center' }} action='#'>
+        <input style={inputStyle} type="text" value={this.props.SearchValue}
+          placeholder='search here' onChange={this.handleFilterTextChange} />
+      </form>
+    )
+  }
+}
+
 let submitList = []
-// let addList = []
 
 class ToDoList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      taskItem: [],
+      taskItemList: [],
       count: 0,
-      value: ''
+      value: '',
+      filterText: '',
+      filterArray: [],
     }
   }
 
@@ -87,7 +112,7 @@ class ToDoList extends React.Component {
 
     this.setState(
       {
-        taskItem: submitList,
+        taskItemList: submitList,
         value: ''
       }
     )
@@ -101,19 +126,33 @@ class ToDoList extends React.Component {
     submitList.splice(index, 1)
     this.setState(
       {
-        taskItem: submitList,
+        taskItemList: submitList,
+      })
+  }
+  handleFilterTextChange = (filterText) => {
+
+    this.setState(
+      {
+        filterText: filterText,
       })
   }
 
   render() {
+    const filterText = this.state.filterText
+    const filteredTask = this.state.taskItemList.map((task, index) => {
+      const TI = <TaskItem delete={this.handleDelete.bind(this, index)} title={task} key={task.toString()} />
+      if (filterText == '')
+        return TI
+      else if (task === filterText)
+        return TI
+    })
     return (
       <div>
         <ToDoItem title="To Do" />
         <Clock />
-        <UserInput submit={this.handleSubmit} change={this.handleChange} value = {this.state.value}  />
-        {this.state.taskItem.map((task, index) => {
-          return <TaskItem delete = {this.handleDelete.bind(this, index)} title={task} key={task.toString()} />
-        })}
+        <UserInput submit={this.handleSubmit} change={this.handleChange} value={this.state.value} />
+        <SearchInput SearchValue={this.state.SearchValue} onFilterTextChange={this.handleFilterTextChange} />
+        {filteredTask}
       </div>
     )
   }

@@ -38,7 +38,7 @@ class Clock extends React.Component {
       <div className="clock">
         <div className="hour" style={hCss} />
         <div className="minute" style={mCss} />
-        <div className="city">{this.props.city}</div>
+        <div className="city" >{this.props.city}</div>
       </div>
     );
   }
