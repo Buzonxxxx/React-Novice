@@ -44,7 +44,7 @@ class Clock extends React.Component {
   }
 }
 
-class App extends React.Component {
+class WorldClock extends React.Component {
   constructor(props) {
     super(props);
     this.state = { inputTime: '2017-11-21 17:00:00' };
@@ -70,4 +70,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default WorldClock

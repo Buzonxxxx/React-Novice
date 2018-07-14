@@ -1,22 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const WarningBanner = props => {
-  if (!props.warn) {
-    return null;
-  }
+const WarningBanner = ({ warn }) => !warn? null : <div>Warning!</div>
 
-  return (
-    <div className="warning">
-      Warning!
-    </div>
-  );
-}
-
-class Page extends React.Component {
+class ShowWarning extends Component {
   constructor(props) {
     super(props);
     this.state = { showWarning: true }
-    // this.handleToggleClick = this.handleToggleClick.bind(this);
   }
 
   handleToggleClick = () => {
@@ -30,11 +19,11 @@ class Page extends React.Component {
       <div>
         <WarningBanner warn={this.state.showWarning} />
         <button onClick={this.handleToggleClick}>
-          {this.state.showWarning ? 'Hide' : 'Show'}
+          {this.state.showWarning? 'Hide' : 'Show'}
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default Page
+export default ShowWarning

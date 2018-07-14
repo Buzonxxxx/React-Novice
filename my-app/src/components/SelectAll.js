@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-class SelectAll extends React.Component {
+class SelectAll extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       checked: [false, false, false],
     }
@@ -54,6 +55,5 @@ class SelectAll extends React.Component {
 
   }
 }
-
 
 export default SelectAll
