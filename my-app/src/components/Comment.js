@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Component }from 'react'
 
 const formatDate = props => props.toLocaleDateString()
-class Comment extends React.Component {
+class Comment extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       date: new Date(),
       text: 'I hope you enjoy learning React!',
@@ -13,9 +14,10 @@ class Comment extends React.Component {
       }
     }
   }
-  // formatDate(props) {
-  //   return props.toLocaleDateString()
-  // }
+  formatDate(props) {
+    return props.toLocaleDateString()
+  }
+
   Avatar(props) {
     return  <img className="Avatar" src={props.avatarUrl} alt={props.name} />
     
@@ -32,12 +34,12 @@ class Comment extends React.Component {
   }
   render() {
     return (
-      <div className="Comment">
+      <div>
         {this.UserInfo(this.state.author)}
-        <div className="Comment-text">
+        <div>
           {this.state.text}
         </div>
-        <div className="Comment-date">
+        <div>
           {formatDate(this.state.date)}
         </div>
       </div>

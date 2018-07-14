@@ -7,7 +7,7 @@ import ToDoList from './components/ToDoList'
 import Toggle from './components/Toggle'
 import ShowWarning from './components/ShowWarning'
 import AgeTeller from './components/AgeTeller'
-import Assignment1 from './components/Assignment1/Assignment1'
+import InputOutput from './components/InputOutput/InputOutput'
 import ReactSample from './components/ReactSample/ReactSample'
 import LoginControl from './components/LoginControl'
 import SelectAll from './components/SelectAll'
@@ -18,17 +18,17 @@ import FilterTable from './components/ThinkInReact'
   
   ReactDOM.render(
     // <Welcome />,
-    // <Comment />,
+    <Comment />,
     // <ToDoList />,
     // <Clock />,
     // <Toggle />,
     // <ShowWarning/>,
     // <AgeTeller />,
-    // <Assignment1 />,
+    // <InputOutput />,
     // <ReactSample/>,
     // <LoginControl />,
     // <SelectAll />,
-    <BoilVerdict/>,
+    // <BoilVerdict/>,
     // <SignUpDialog/>,
     // <WorldClock />,
     // <FilterTable />,

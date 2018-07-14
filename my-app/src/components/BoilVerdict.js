@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component }from 'react'
 
 const scaleNames = {
   c: 'Celsius',
@@ -18,38 +18,25 @@ const tryConvert = (temperature, convert) => {
   return rounded.toString();
 }
 
-const BoilingVerdict = (props) => {
-  if (props.celsius >= 100) {
-    return <p>The water would boil.</p>;
-  }
-  return <p>The water would not boil.</p>;
-}
+const BoilingVerdict = (props) => props.celsius >= 100 ? <p>The water would boil.</p> : <p>The water would not boil.</p>;
 
-class TemperatureInput extends React.Component {
-
-  handleChange = (e) => {
-    this.props.onTemperatureChange(e.target.value);
-  }
-
-  render() {
-    const temperature = this.props.temperature; // celsius or fahrenheit
-    const scale = this.props.scale; //c or f
-    return (
-      <fieldset>
-        <legend>Enter temperature in {scaleNames[scale]}:</legend>
-        <input value={temperature}
-          onChange={this.handleChange} />
-      </fieldset>
-    );
-  }
-}
+const TemperatureInput = ({ temperature, scale, onTemperatureChange }) => {
+  return (
+    <fieldset>
+      <legend>Enter temperature in {scaleNames[scale]}:</legend>
+      <input value={temperature}
+        onChange={(event) => onTemperatureChange(event.target.value)} />
+    </fieldset>
+  )
+} 
 
 class Calculator extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
       temperature: '',
-      scale: 'c'
+      scale: ''
     }
   }
 
