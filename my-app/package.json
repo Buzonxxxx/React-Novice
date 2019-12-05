@@ -5,10 +5,10 @@
   "homepage": "https://buzonxxxx.github.io/React-Novice/",
   "dependencies": {
     "radium": "^0.19.6",
-    "react": "^16.0.0",
+    "react": "^16.12.0",
     "react-bootstrap": "^0.31.5",
-    "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-dom": "^16.12.0",
+    "react-scripts": "^1.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
