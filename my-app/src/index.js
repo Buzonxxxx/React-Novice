@@ -6,7 +6,6 @@ import ToDoList from './components/ToDoList'
 import Toggle from './components/Toggle'
 import ShowWarning from './components/ShowWarning'
 import AgeTeller from './components/AgeTeller'
-import InputOutput from './components/InputOutput/InputOutput'
 import ReactSample from './components/ReactSample/ReactSample'
 import LoginControl from './components/LoginControl'
 import SelectAll from './components/SelectAll'
@@ -20,14 +19,13 @@ import FilterTable from './components/FilterTable/FilterTable'
     // <Clock />,
     // <Toggle />,
     // <ShowWarning/>,
-    <AgeTeller />,
-    // <InputOutput />,
+    // <AgeTeller />,
     // <ReactSample/>,
     // <LoginControl />,
     // <SelectAll />,
     // <BoilVerdict/>,
     // <SignUpDialog/>,
-    // <FilterTable />,
+    <FilterTable />,
     document.getElementById('root')
   );
 
