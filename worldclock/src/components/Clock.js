@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import "./WorldClock.css";
 
-Date.prototype.getLocalTime = function(offset) {
-  var MSEC_HOUR = 3600000; // milliseconds in an hour
-  var MSEC_MIN = 60000; // milliseconds in a minute
-  var utc = this.getTime() + this.getTimezoneOffset() * MSEC_MIN;
-  return utc + offset * MSEC_HOUR;
-};
-
 class Clock extends Component {
   getOffsetByTimezone(timezone) {
     switch (timezone) {
@@ -26,10 +19,16 @@ class Clock extends Component {
     }
   }
 
+  getLocalTime(offset, t) {
+      var MSEC_HOUR = 3600000; // milliseconds in an hour
+      var MSEC_MIN = 60000; // milliseconds in a minute
+      var utc = t.getTime() + t.getTimezoneOffset() * MSEC_MIN;
+      return utc + offset * MSEC_HOUR;
+    };
+
   render() {
-    const t = this.props.time;
     const offset = this.getOffsetByTimezone(this.props.timezone);
-    const nd = new Date(t.getLocalTime(offset));
+    const nd = new Date(this.getLocalTime(offset, this.props.time))
     var h = nd.getHours();
     var m = nd.getMinutes();
     h = 270 + (h + m / 60) * 30;
