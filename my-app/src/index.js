@@ -12,7 +12,6 @@ import LoginControl from './components/LoginControl'
 import SelectAll from './components/SelectAll'
 import BoilVerdict from './components/BoilVerdict'
 import SignUpDialog from './components/SignUpDialog'
-import WorldClock from './components/WorldClock/WorldClock'
 import FilterTable from './components/FilterTable/FilterTable'
   
   ReactDOM.render(
@@ -21,14 +20,13 @@ import FilterTable from './components/FilterTable/FilterTable'
     // <Clock />,
     // <Toggle />,
     // <ShowWarning/>,
-    // <AgeTeller />,
+    <AgeTeller />,
     // <InputOutput />,
     // <ReactSample/>,
     // <LoginControl />,
-    <SelectAll />,
+    // <SelectAll />,
     // <BoilVerdict/>,
     // <SignUpDialog/>,
-    // <WorldClock />,
     // <FilterTable />,
     document.getElementById('root')
   );
