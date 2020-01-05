@@ -11,7 +11,6 @@ import LoginControl from './components/LoginControl'
 import SelectAll from './components/SelectAll'
 import BoilVerdict from './components/BoilVerdict'
 import SignUpDialog from './components/SignUpDialog'
-import FilterTable from './components/FilterTable/FilterTable'
   
   ReactDOM.render(
     // <Welcome />,
@@ -25,7 +24,6 @@ import FilterTable from './components/FilterTable/FilterTable'
     // <SelectAll />,
     // <BoilVerdict/>,
     // <SignUpDialog/>,
-    <FilterTable />,
     document.getElementById('root')
   );
 
