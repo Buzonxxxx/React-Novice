@@ -14,7 +14,7 @@ import SignUpDialog from './components/SignUpDialog'
     // <Toggle />,
     // <ShowWarning/>,
     // <AgeTeller />,
-    // <LoginControl />,
+    <LoginControl />,
     // <SelectAll />,
     // <BoilVerdict/>,
     // <SignUpDialog/>,
